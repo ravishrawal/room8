@@ -1,5 +1,5 @@
 const Sequelize = require('sequelize');
-const DATABASE_URL = 'postgres://localhost/room8';
+const DATABASE_URL = process.env.DATABASE_URL || 'postgres://localhost/room8';
 const moment = require('moment');
 
 const db = new Sequelize(DATABASE_URL, {
