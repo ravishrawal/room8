@@ -10,9 +10,9 @@ export default class Task extends Component{
         <li className='list-group-item'>{task.description}
         <br/>
         {
-          task.isComplete ? <label className="badge badge-success">"Complete!"</label> :
+          task.isComplete ? <label className="badge badge-success">Complete!</label> :
             <div>
-              <label className="badge badge-warning">"Pending..."</label>
+              <label className="badge badge-warning">Pending...</label>
               <div className="alert alert-warning">
                 <strong>{task.timeRemaining}</strong>
               </div>
