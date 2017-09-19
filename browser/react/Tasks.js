@@ -21,7 +21,7 @@ export default class Tasks extends Component{
       </ul>
       {tasks.length===0 &&
         <div className="alert alert-success">
-          <strong>No Tasks!</strong>
+          <strong>No Tasks!</strong> 
         </div>
       }
 

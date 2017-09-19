@@ -28787,14 +28787,14 @@ var Task = function (_Component) {
           task.isComplete ? _react2.default.createElement(
             'label',
             { className: 'badge badge-success' },
-            '"Complete!"'
+            'Complete!'
           ) : _react2.default.createElement(
             'div',
             null,
             _react2.default.createElement(
               'label',
               { className: 'badge badge-warning' },
-              '"Pending..."'
+              'Pending...'
             ),
             _react2.default.createElement(
               'div',
