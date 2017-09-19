@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack -w & nodemon --watch server -e js,html server/server.js",
+    "start": "webpack -w & node --watch server -e js,html server/server.js",
+    "start:dev": "webpack -w & nodemon --watch server -e js,html server/server.js",
     "test": "./node_modules/.bin/mocha server/**/*.test.js --reporter spec"
   },
   "author": "",
