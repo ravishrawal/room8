@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "node --watch server -e js,html server/main.js",
     "start:dev": "webpack -w & nodemon --watch server -e js,html server/server.js",
     "test": "./node_modules/.bin/mocha server/**/*.test.js --reporter spec"
   },
