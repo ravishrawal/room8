@@ -54,4 +54,18 @@ router.delete('/tasks/:taskId', (req, res, next)=>{
   })
 })
 
+router.get('/leaderboard', (req, res, next)=>{
+  const UserArray=[];
+  Promise.all([
+    Roommate.findOne({where:{name:'Robert'}}),
+    Roommate.findOne({where:{name:'Sasha'}}),
+    Roommate.findOne({where:{name:'Rav'}}),
+    Roommate.findOne({where:{name:'Alec'}}),
+    Roommate.findOne({where:{name:'Mateo'}})
+  ])
+  .then(([Robert, Sasha, Rav, Alec, Mateo])=>{
+    console.log(Robert.getTasks);
+  })
+})
+
 module.exports = router

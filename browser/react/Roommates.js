@@ -15,13 +15,10 @@ export default class Roommates extends Component{
     axios.get('/roommates')
     .then((result)=>{
       this.setState({roommates: result.data})
-      console.log('state:', this.state);
     })
   }
   render(){
     const { roommates } = this.state;
-    console.log(roommates[0].tasks[0]);
-    console.log('ROOMMATES: ', roommates);
     return (
       <div className='col-sm-10'>
         <h2 className='text-center'>Roommates</h2>

@@ -24527,6 +24527,10 @@ var _newTask = __webpack_require__(262);
 
 var _newTask2 = _interopRequireDefault(_newTask);
 
+var _Leaderboard = __webpack_require__(264);
+
+var _Leaderboard2 = _interopRequireDefault(_Leaderboard);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -24559,6 +24563,7 @@ var Main = function (_Component) {
         _react2.default.createElement(
           'div',
           { className: 'wrapper' },
+          _react2.default.createElement(_Leaderboard2.default, null),
           _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/', component: _Roommates2.default }),
           _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/:roommateId/newTask', render: function render(routeProps) {
               return _react2.default.createElement(_newTask2.default, routeProps);
@@ -27726,7 +27731,6 @@ var Roommates = function (_Component) {
 
       _axios2.default.get('/roommates').then(function (result) {
         _this2.setState({ roommates: result.data });
-        console.log('state:', _this2.state);
       });
     }
   }, {
@@ -27734,8 +27738,6 @@ var Roommates = function (_Component) {
     value: function render() {
       var roommates = this.state.roommates;
 
-      console.log(roommates[0].tasks[0]);
-      console.log('ROOMMATES: ', roommates);
       return _react2.default.createElement(
         'div',
         { className: 'col-sm-10' },
@@ -29158,6 +29160,88 @@ var TaskForm = function (_Component) {
 }(_react.Component);
 
 exports.default = TaskForm;
+
+/***/ }),
+/* 264 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(6);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _axios = __webpack_require__(31);
+
+var _axios2 = _interopRequireDefault(_axios);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Leaderboard = function (_Component) {
+  _inherits(Leaderboard, _Component);
+
+  function Leaderboard() {
+    _classCallCheck(this, Leaderboard);
+
+    var _this = _possibleConstructorReturn(this, (Leaderboard.__proto__ || Object.getPrototypeOf(Leaderboard)).call(this));
+
+    _this.state = {
+      roommateStats: []
+    };
+    return _this;
+  }
+
+  _createClass(Leaderboard, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      var _this2 = this;
+
+      _axios2.default.get('/leaderboard').then(function (res) {
+        return _this2.setState({ roommateStats: res.data });
+      }).then(function () {
+        return console.log('leaderboard state: ', _this2.state);
+      });
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      console.log('leaderboard state: ', this.state);
+      return _react2.default.createElement(
+        'div',
+        { className: 'row' },
+        _react2.default.createElement(
+          'div',
+          { className: 'col-sm-3' },
+          _react2.default.createElement(
+            'li',
+            null,
+            'YO: ',
+            this.state.roommateStats
+          )
+        ),
+        _react2.default.createElement('div', { className: 'col-sm-3' }),
+        _react2.default.createElement('div', { className: 'col-sm-3' })
+      );
+    }
+  }]);
+
+  return Leaderboard;
+}(_react.Component);
+
+exports.default = Leaderboard;
 
 /***/ })
 /******/ ]);
