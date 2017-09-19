@@ -45,4 +45,13 @@ router.put('/tasks/:taskId', (req, res, next)=>{
     .then(res.redirect('/#/'))
 })
 
+router.delete('/tasks/:taskId', (req, res, next)=>{
+  const taskId = +req.params.taskId;
+  Task.destroy({
+    where: {
+      id: taskId
+    }
+  })
+})
+
 module.exports = router
