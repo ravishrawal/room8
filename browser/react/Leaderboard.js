@@ -43,7 +43,7 @@ export default class Leaderboard extends Component{
           <div className='col-sm-3'>
             <li>Pending</li>
             {
-              lister('Pending')
+              lister('pending')
             }
           </div>
         </div>
