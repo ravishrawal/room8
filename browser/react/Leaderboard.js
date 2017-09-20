@@ -25,24 +25,27 @@ export default class Leaderboard extends Component{
       })
     }
     return (
-      <div className='row'>
-        <div className='col-sm-3'>
-          <li>Name</li>
-          {
-            lister('name')
-          }
-        </div>
-        <div className='col-sm-3'>
-          <li>Completed</li>
-          {
-            lister('completed')
-          }
-        </div>
-        <div className='col-sm-3'>
-          <li>Pending</li>
-          {
-            lister('Pending')
-          }
+      <div className='well'>
+      <h2>Leaderboard!</h2>
+        <div className='row'>
+          <div className='col-sm-3'>
+            <li>Name</li>
+            {
+              lister('name')
+            }
+          </div>
+          <div className='col-sm-3'>
+            <li>Completed</li>
+            {
+              lister('completed')
+            }
+          </div>
+          <div className='col-sm-3'>
+            <li>Pending</li>
+            {
+              lister('Pending')
+            }
+          </div>
         </div>
       </div>
     )

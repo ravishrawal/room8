@@ -13,8 +13,8 @@ export default class Main extends Component{
     return (
       <HashRouter >
         <div className='wrapper'>
-          <Leaderboard />
           <Route exact path='/' component={Roommates} />
+          <Leaderboard />
           <Route exact path='/:roommateId/newTask' render={(routeProps)=><NewTask {...routeProps}/>} />
         </div>
       </HashRouter >

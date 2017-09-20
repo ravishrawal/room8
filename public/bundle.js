@@ -24563,8 +24563,8 @@ var Main = function (_Component) {
         _react2.default.createElement(
           'div',
           { className: 'wrapper' },
-          _react2.default.createElement(_Leaderboard2.default, null),
           _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/', component: _Roommates2.default }),
+          _react2.default.createElement(_Leaderboard2.default, null),
           _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/:roommateId/newTask', render: function render(routeProps) {
               return _react2.default.createElement(_newTask2.default, routeProps);
             } })
@@ -29230,36 +29230,45 @@ var Leaderboard = function (_Component) {
       };
       return _react2.default.createElement(
         'div',
-        { className: 'row' },
+        { className: 'well' },
         _react2.default.createElement(
-          'div',
-          { className: 'col-sm-3' },
-          _react2.default.createElement(
-            'li',
-            null,
-            'Name'
-          ),
-          lister('name')
+          'h2',
+          null,
+          'Leaderboard!'
         ),
         _react2.default.createElement(
           'div',
-          { className: 'col-sm-3' },
+          { className: 'row' },
           _react2.default.createElement(
-            'li',
-            null,
-            'Completed'
+            'div',
+            { className: 'col-sm-3' },
+            _react2.default.createElement(
+              'li',
+              null,
+              'Name'
+            ),
+            lister('name')
           ),
-          lister('completed')
-        ),
-        _react2.default.createElement(
-          'div',
-          { className: 'col-sm-3' },
           _react2.default.createElement(
-            'li',
-            null,
-            'Pending'
+            'div',
+            { className: 'col-sm-3' },
+            _react2.default.createElement(
+              'li',
+              null,
+              'Completed'
+            ),
+            lister('completed')
           ),
-          lister('Pending')
+          _react2.default.createElement(
+            'div',
+            { className: 'col-sm-3' },
+            _react2.default.createElement(
+              'li',
+              null,
+              'Pending'
+            ),
+            lister('Pending')
+          )
         )
       );
     }
