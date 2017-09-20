@@ -10,19 +10,39 @@ export default class Leaderboard extends Component{
   }
   componentDidMount(){
     axios.get('/leaderboard')
-    .then(res=> this.setState({roommateStats:res.data}))
-    .then(()=>console.log('leaderboard state: ', this.state))
+    .then(res=> {
+      console.log('RES: ', res);
+      this.setState({roommateStats:res.data})
+    })
   }
   render(){
-    console.log('leaderboard state: ', this.state)
+    const {roommateStats} = this.state
+    const lister= function(key){
+      return roommateStats.map((roommate)=>{
+        return (
+          <li>{roommate[key]}</li>
+        )
+      })
+    }
     return (
       <div className='row'>
         <div className='col-sm-3'>
-          <li>YO: {this.state.roommateStats}</li>
+          <li>Name</li>
+          {
+            lister('name')
+          }
         </div>
         <div className='col-sm-3'>
+          <li>Completed</li>
+          {
+            lister('completed')
+          }
         </div>
         <div className='col-sm-3'>
+          <li>Pending</li>
+          {
+            lister('Pending')
+          }
         </div>
       </div>
     )

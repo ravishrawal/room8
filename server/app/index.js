@@ -55,16 +55,26 @@ router.delete('/tasks/:taskId', (req, res, next)=>{
 })
 
 router.get('/leaderboard', (req, res, next)=>{
-  const UserArray=[];
-  Promise.all([
-    Roommate.findOne({where:{name:'Robert'}}),
-    Roommate.findOne({where:{name:'Sasha'}}),
-    Roommate.findOne({where:{name:'Rav'}}),
-    Roommate.findOne({where:{name:'Alec'}}),
-    Roommate.findOne({where:{name:'Mateo'}})
-  ])
-  .then(([Robert, Sasha, Rav, Alec, Mateo])=>{
-    console.log(Robert.getTasks);
+  var RoommateArray=[];
+  Roommate.findAll()
+  .then((roommates)=>{
+    roommates.forEach((roommate)=>{
+      roommate.getTasks()
+      .then((tasks)=>{
+        // console.log('roommate\'s tasks: ', tasks);
+        var completed=0;
+        var pending=0;
+        var total = tasks.length;
+        tasks.forEach(function(task){
+          task.isComplete ? completed++ : pending++
+          console.log(pending);
+        })
+        console.log(pending);
+        RoommateArray.push({name: roommate.name, completed, pending, total})
+        if(RoommateArray.length===5){return RoommateArray}
+      })
+      .then((RoommateArray)=>{if(RoommateArray){res.json(RoommateArray)}})
+    })
   })
 })
 
